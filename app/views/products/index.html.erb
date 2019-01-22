@@ -1,6 +1,20 @@
 <h1>Products</h1>
-<% @products.each do |product| %>
-  <%= product.name %>
-  <%= product.price %>
-  <%= image_tag product.photo %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @products.each_slice(4) do |row| %>
+      <% row.each do |product| %>
+        <div class="col">
+          <div class="card">
+            <%= image_tag product.photo, class: 'card-img-top' %>
+            <div class="body">
+              <h5><%= product.name %></h5>
+              <p><%= product.price %></p>
+              <%= link_to "Comprar", "#", class: 'btn btn-success' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="w-100" style="margin-top: 3rem"> </div>
+    <% end %>
+  </div>
+</div>
