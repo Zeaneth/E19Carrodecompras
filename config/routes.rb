@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'orders/create'
   resources :products, only: :index do
     resources :orders, only: :create
   end
